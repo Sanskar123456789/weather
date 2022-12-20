@@ -1,0 +1,31 @@
+<div class="card" style="width:100%;margin: auto;">
+  <div class="card-body">
+    <h3>{{data.location.name}}</h3>
+    <h4>{{data.location.region}}</h4>
+    <h5>{{data.location.country}}</h5>
+    <br>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" (click)="logout()">Logout</button>
+  </div>
+    <table class="table" style="width:80%; margin: auto;">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Condition</th>
+            <th scope="col">Min Temprature</th>
+            <th scope="col">Max Temprature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let d of data.forecast.forecastday">
+            <th scope="row">{{d.date}}</th>
+            <td>{{d.day.condition.text}}
+              <img [src]="d.day.condition.icon" alt="" srcset="" style="width: 30px;">
+            </td>
+            <td>{{d.day.mintemp_c}}</td>
+            <td>{{d.day.maxtemp_c}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
